@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form{
+     margin:auto;
+     width: 200px;
+
+
+        }
+        input{
+            width: 240px;
+            height: 40px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+        #button{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-weight: bold;text-align: center;">Signup Form</h1>
+    <form id="form">
+        <input type="text" id="name" placeholder="enter ypor name"><br>
+        <input type="password" id="password" placeholder="enter your password"><br>
+        <input type="email" id="email" placeholder="enter your password"><br>
+        <input type="submit" id="button">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").
+    addEventListener("submit",formdetails);
+    var alluser=JSON.parse(localStorage.getItem("details"))|| [];
+    console.log(alluser)
+    function formdetails(event){
+        
+        event.preventDefault()
+        var name=document.getElementById("name").value;
+        var password=document.getElementById("password").value;
+        var email=document.getElementById("email").value;
+        var user={
+            name:name,
+            password:password,
+            email:email
+        }
+        alluser.push(user);
+        console.log(alluser)
+        localStorage.setItem("details",JSON.stringify(alluser));
+        document.querySelector("input[type='submit']")
+.addEventListener("click", function () {
+  window.location.href = "login.html";
+});
+    }
+       
+    
+</script>

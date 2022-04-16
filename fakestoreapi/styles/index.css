@@ -1,0 +1,31 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+#image{
+    width: 400px;
+    height: 400px;
+    margin-top: 40px;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+}
+#logo{
+    text-transform: uppercase;
+    font-weight: bolder; 
+}
+#list ul li {
+    display: inline;
+    margin-right: 20px;
+}
+ul li a {
+    text-decoration: none;
+}
+a{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bolder;
+}

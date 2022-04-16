@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form{
+            margin: auto;
+            width: 200px;
+            
+        }
+        input{
+            width: 145px;
+            height: 35px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <h1>Login Form</h1>
+      <input type="text" id="name" placeholder="name">
+      <br>
+      <input type="password" id="password" placeholder="password">
+      <br>
+      <input type="submit" style="margin-left: 5px;">
+    </form>
+    
+</body>
+</html>
+
+<script>
+
+var alluser=JSON.parse(localStorage.getItem("details"))|| [];
+console.log(alluser)
+
+document.querySelector("#form")
+    .addEventListener("submit",login);
+    var form=document.querySelector("#form");
+    function login(event){
+        event.preventDefault();
+        var name=form.name.value
+        var password=form.password.value
+    console.log(name,password)
+     var flag=false;
+     for(var i=0;i<alluser.length;i++){
+         if(alluser[i].name==name && alluser[i].password==password) {
+             flag=true;
+         }
+         else{
+             flag=false;
+         }
+         if(flag==true){
+            //  alert("valid credentials")
+            //  break;
+
+             window.location.href = "index.html";
+
+         }
+         else{
+             alert("invalid credentials");
+             break;
+         }
+     }
+}
+</script>
